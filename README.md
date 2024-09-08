@@ -6,9 +6,16 @@ require any _root_ access. It works on _GNU/Linux_, _Windows_ and _macOS_.
 The purpose is to enable [audio forwarding][issue14] while mirroring with
 [scrcpy]. However, it can be used independently.
 
+**Update: [scrcpy 2.0] now supports audio forwarding natively.**
+
 [issue14]: https://github.com/Genymobile/scrcpy/issues/14
 [scrcpy]: https://github.com/Genymobile/scrcpy
+[scrcpy 2.0]: https://blog.rom1v.com/2023/03/scrcpy-2-0-with-audio/
 
+## Note
+
+This application is a proof-of-concept. But as explained below, many apps are
+restricted and could not forward the audio.
 
 ## Requirements
 
@@ -23,9 +30,9 @@ The purpose is to enable [audio forwarding][issue14] while mirroring with
 Download the latest release:
 
  - [`sndcpy-v1.1.zip`][release]  
-   _SHA256: _b045320ddddbc5a237d6d95213c664f03b2f46ef8bbfcef91c2d95644ed42bbc
+   <sub>SHA-256: `b045320ddddbc5a237d6d95213c664f03b2f46ef8bbfcef91c2d95644ed42bbc`</sub>
  - [`sndcpy-with-adb-windows-v1.1.zip`][release-adb]  
-   _SHA256: _0b93c846f574df3f38f53eeee44b1a35b863a49465da8f5cd5b1b69a29305901
+   <sub>SHA-256: `0b93c846f574df3f38f53eeee44b1a35b863a49465da8f5cd5b1b69a29305901`</sub>
 
 _On Windows, for simplicity, take the second archive, which also contains
 `adb`._
@@ -79,8 +86,8 @@ adb uninstall com.rom1v.sndcpy
 
 ## Apps restrictions
 
-`sndcpy` may only forward audio from apps which do not [prevent audio
-capture][allow]. The rules are detailed in [§capture policy][rules]:
+`sndcpy` may only forward audio from apps which do not prevent audio
+capture. The rules are detailed in [§capture policy][rules]:
 
 > - By default, apps that target versions up to and including to Android 9.0 do
 >   not permit playback capture. To enable it, include
@@ -92,7 +99,6 @@ capture][allow]. The rules are detailed in [§capture policy][rules]:
 
 So some apps might need to be updated to support audio capture.
 
-[allow]: https://developer.android.com/guide/topics/media/playback-capture#allowing_playback_capture
 [rules]: https://developer.android.com/guide/topics/media/playback-capture#capture_policy
 
 ## Audio delay
